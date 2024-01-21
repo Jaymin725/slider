@@ -7,19 +7,35 @@
     <title>Slider</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="styles/style.css" rel="stylesheet">
   </head>
   <body>
-    <main>
-      <div class="slider">
-        <div class="slider-wrapper">
-          <div class="slider-item">1</div>
-          <div class="slider-item">2</div>
-          <div class="slider-item">3</div>
-          <div class="slider-item">4</div>
-          <div class="slider-item">5</div>
+    <main class="w-screen h-screen bg-gray-600 flex justify-center items-center">
+      <div class="slider flex gap-4">
+        <div class="slider-wrapper flex">
+          <div class="slider-item active">
+            <img src="https://dummyimage.com/300x300/000000/ffffff&text=1" alt="">
+          </div>
+          <div class="slider-item next">
+            <img src="https://dummyimage.com/300x300/000000/ffffff&text=2" alt="">
+          </div>
+          <div class="slider-item">
+            <img src="https://dummyimage.com/300x300/000000/ffffff&text=3" alt="">
+          </div>
+          <div class="slider-item">
+            <img src="https://dummyimage.com/300x300/000000/ffffff&text=4" alt="">
+          </div>
+          <div class="slider-item previous">
+            <img src="https://dummyimage.com/300x300/000000/ffffff&text=5" alt="">
+          </div>
         </div>
-        <button id="slider-prev">prev</button>
-        <button id="slider-next">next</button>
+        <button id="slider-prev"><span class="material-icons">
+          arrow_circle_left
+          </span></button>
+        <button id="slider-next"><span class="material-icons">
+          arrow_circle_right
+          </span></button>
       </div>
     </main>
 
