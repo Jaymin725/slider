@@ -6,22 +6,22 @@ var slider = {
   len: slider_items.length,
   index: 0,
 
-  previous: function () {
-    let prev = this.index - 1;
+  prev: function (n = this.index) {
+    let prev = n - 1;
     return (prev < 0) ? (this.len - 1) : (prev);
   },
 
-  next: function () {
-    let next = this.index + 1;
+  next: function (n = this.index) {
+    let next = n + 1;
     return (next > this.len - 1) ? (0) : (next);
   },
 
   display: function () {
-    console.log(`prev: ${slider.previous()}, i: ${slider.index}, next: ${slider.next()}`);
+    console.log(`prev-prev: ${slider.prev(slider.prev())}, prev: ${slider.prev()}, i: ${slider.index}, next: ${slider.next()}, next-next: ${slider.next(slider.next())}`);
   },
 
   slidePrevious: function () {
-    slider.index = slider.previous();
+    slider.index = slider.prev();
     slider.display();
     setIndex();
   },
@@ -38,9 +38,11 @@ next_button.addEventListener("click", slider.slideNext);
 
 function setIndex() {
   slider_items.forEach((slide, i) => {
-    slide.classList.toggle("previous", i == slider.previous());
+    slide.classList.toggle("prev-prev", i == slider.prev(slider.prev()));
+    slide.classList.toggle("prev", i == slider.prev());
     slide.classList.toggle("active", i == slider.index);
     slide.classList.toggle("next", i == slider.next());
+    slide.classList.toggle("next-next", i == slider.next(slider.next()));
   })
 }
 
